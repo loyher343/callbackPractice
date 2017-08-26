@@ -96,7 +96,19 @@ contains(names, 'Colt', function(result){
 // Invoke the callback with the modified array as an argument.
 
   //Code Here
-
+function uniq(arr, cb) {
+  uniqArr=[],
+  obj={};
+  
+  for (var i=0;i<arr.length;i++) {
+    obj[arr[i]]=0;
+  }
+  for (i in obj) {
+   uniqArr.push(i);
+  }
+  cb(uniqArr);
+}
+  
 
 
 uniq(names, function(uniqArr){
@@ -108,10 +120,15 @@ uniq(names, function(uniqArr){
 
     //Code Here 
 
+function each(arr, cb){
+  for(var i=0; i<arr.length; i++){
+    cb(arr[i], i)
+  }
+}
 
 
-each(names, function(item, indice){
-  console.log('The item in the ' + indice + ' position is ' + item)
+each(names, function(item, index){
+  console.log('The item in the ' + index + ' position is ' + item)
 });
 
 
@@ -144,6 +161,19 @@ var users = [
   },
 ];
 
+functin
+
+function getUserById(obj, id, cb){
+  if(id==='16t'){
+      cb(obj[2])
+  }else{
+      return "ya done goofed"
+      
+  }
+   
+}
+
+
 getUserById(users, '16t', function(user){
-  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
+ console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
 });
